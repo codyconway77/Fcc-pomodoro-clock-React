@@ -75,13 +75,14 @@ const handleResetButtonClick= () => {
   setTimeLeft(60 * 25);
 }
   return (
-    <div className="App h-screen grid grid-cols-3 bg-purple-300">
+    <div className="App h-screen grid gap-8 grid-cols-3 bg-teal-200">
       <Session 
       sessionLength={sessionLength} 
       decrementSessionLengthByOneMinute={decrementSessionLengthByOneMinute}
       incrementSessionLengthByOneMinute={incrementSessionLengthByOneMinute} />
       <TimeLeft 
       handleStartStopClick={handleStartStopClick}
+      handleResetButtonClick={handleResetButtonClick}
       timerLabel={currentSessionType}
       timeLeft={timeLeft}
       startStopButtonLabel={intervalId ? 'Stop' : 'Start'} />
@@ -89,7 +90,6 @@ const handleResetButtonClick= () => {
       breakLength={breakLength}
       decrementBreakLengthByOneMinute={decrementBreakLengthByOneMinute}
       incrementBreakLengthByOneMinute={incrementBreakLengthByOneMinute} />
-      <button className="container bg-red-200" id="reset" onClick={handleResetButtonClick}>Reset</button>
       <audio id="beep" ref={audioElement}>
         <source src="https://onlineclcok.net/audio/options/default.mp3" type="audio/mpeg" />
       </audio>  
